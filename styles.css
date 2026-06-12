@@ -1066,3 +1066,19 @@ body{
   .media-points{justify-content:stretch;}
   .media-points span{width:100%;justify-content:center;}
 }
+
+
+/* Ajustes solicitados: fondo gris, mapa más limpio y campo de número de serie. */
+body{
+  background:#e8e8e8!important;
+}
+.site-header,.section:not(.dark),.locations,.quote,.upload-section,.guide,.media{
+  background:#e8e8e8!important;
+}
+.map-eyebrow{display:none!important;}
+.map-card,.quote-box,.upload-box,.upload-preview-panel,.branch-panel{
+  background:#f7f7f7;
+}
+.quote-box input,.quote-box select,.quote-box textarea,.upload-box input,.upload-box select,.upload-box textarea{
+  background:#fff;
+}

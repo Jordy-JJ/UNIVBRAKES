@@ -239,8 +239,9 @@ function updateOpenStatus() {
 updateOpenStatus();
 setInterval(updateOpenStatus, 60000);
 
-function sendWhatsApp({ phone, part, car, notes }) {
-  const message = `Hola UNIVBRAKES, quiero cotizar ${part} para ${car}.${notes ? ` Comentarios: ${notes}` : ''}`;
+function sendWhatsApp({ phone, part, car, serial, notes }) {
+  const serialText = serial ? ` Número de serie: ${serial}.` : '';
+  const message = `Hola UNIVBRAKES, quiero cotizar ${part} para ${car}.${serialText}${notes ? ` Comentarios: ${notes}` : ''}`;
   window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
 }
 
@@ -249,9 +250,10 @@ document.getElementById('quoteForm')?.addEventListener('submit', (event) => {
   const phone = document.getElementById('branch').value;
   const part = document.getElementById('part').value;
   const car = document.getElementById('car').value.trim();
+  const serial = document.getElementById('serial')?.value.trim() || '';
   const notes = document.getElementById('notes').value.trim();
   if (!car) return;
-  sendWhatsApp({ phone, part, car, notes });
+  sendWhatsApp({ phone, part, car, serial, notes });
 });
 
 document.querySelectorAll('.quote-product').forEach((button) => {
@@ -319,9 +321,11 @@ function buildUploadWhatsAppMessage() {
   const user = document.getElementById('uploadUser')?.value.trim() || 'cliente';
   const contact = document.getElementById('uploadPhone')?.value.trim() || 'sin teléfono escrito';
   const vehicle = document.getElementById('uploadVehicle')?.value.trim() || 'vehículo/producto por confirmar';
+  const serial = document.getElementById('uploadSerial')?.value.trim();
   const notes = document.getElementById('uploadNotes')?.value.trim();
   const fileCount = selectedUploadFiles().length;
-  const message = `Hola UNIVBRAKES ${branchName}, soy ${user}. Subí ${fileCount} foto(s) desde la página para cotizar: ${vehicle}. Mi WhatsApp es ${contact}.${notes ? ` Comentarios: ${notes}.` : ''} ¿Me pueden apoyar con disponibilidad y precio?`;
+  const serialText = serial ? ` Número de serie: ${serial}.` : '';
+  const message = `Hola UNIVBRAKES ${branchName}, soy ${user}. Subí ${fileCount} foto(s) desde la página para cotizar: ${vehicle}.${serialText} Mi WhatsApp es ${contact}.${notes ? ` Comentarios: ${notes}.` : ''} ¿Me pueden apoyar con disponibilidad y precio?`;
   return { phone, message };
 }
 
