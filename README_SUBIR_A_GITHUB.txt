@@ -1,13 +1,13 @@
-UNIVBRAKES - PAQUETE LIGERO PARA GITHUB PAGES
+UNIVBRAKES - PAQUETE LIGERO CORREGIDO
 
-IMPORTANTE:
-1. DESCOMPRIME este ZIP en tu computadora.
-2. En GitHub > Add file > Upload files, sube TODOS los archivos y carpetas que están dentro.
-3. NO subas el ZIP como un solo archivo.
+CORRECCIÓN:
+- La imagen del popup de SUCURSALES ahora está incrustada directamente dentro de index.html.
+- Ya no depende de la carpeta assets para mostrar esa imagen específica.
+- El resto de las imágenes sigue optimizado en assets para mantener el sitio ligero.
+
+PARA GITHUB:
+1. Descomprime el ZIP.
+2. Sube TODOS los archivos y la carpeta assets.
+3. No subas el ZIP directamente.
 4. index.html debe quedar en la raíz del repositorio.
-5. Conserva la carpeta assets junto a index.html.
-
-Esta versión elimina imágenes incrustadas gigantes del HTML y las guarda como archivos optimizados,
-por eso GitHub puede recibirla mucho más fácilmente.
-
-Dominio personalizado: univbrakes.com
+5. Conserva CNAME para univbrakes.com.
